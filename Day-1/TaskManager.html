@@ -14,33 +14,36 @@
 		}
 	</style>
 	<script>
-	function btnAddTaskClick(){
-		var txtTask = document.getElementById("txtTask");
-		var ulTaskList = document.getElementById("ulTaskList");
-		
-		var newTaskItem = document.createElement("li");
-		newTaskItem.innerHTML = txtTask.value;
-		newTaskItem.onclick = taskItemClick;
-		ulTaskList.appendChild(newTaskItem);
-		
-	}
-	function taskItemClick(){
-		if (this.classList.contains("completed"))
-			this.classList.remove("completed") ;
-		else
-			this.classList.add("completed");
-	}
-	function initialize() {
-		var btnAddTask = document.getElementById("btnAddTask");
-		//btnAddTask.onclick = btnAddTaskClick;
-		btnAddTask.addEventListener('click',btnAddTaskClick);
+	(function(){
+		function btnAddTaskClick(){
+			var txtTask = document.getElementById("txtTask");
+			var ulTaskList = document.getElementById("ulTaskList");
+			
+			var newTaskItem = document.createElement("li");
+			newTaskItem.innerHTML = txtTask.value;
+			newTaskItem.onclick = taskItemClick;
+			ulTaskList.appendChild(newTaskItem);
+			
+		}
+		function taskItemClick(){
+			if (this.classList.contains("completed"))
+				this.classList.remove("completed") ;
+			else
+				this.classList.add("completed");
+		}
+		function initialize() {
+			var btnAddTask = document.getElementById("btnAddTask");
+			//btnAddTask.onclick = btnAddTaskClick;
+			btnAddTask.addEventListener('click',btnAddTaskClick);
 
-		//Add click handler to all taskItems "li"
-		var taskItems = document.getElementsByTagName("li");
-		for(var i=0;i<taskItems.length;i++)
-			taskItems[i].onclick = taskItemClick;
-	}
-	window.onload = initialize; 
+			//Add click handler to all taskItems "li"
+			var taskItems = document.getElementsByTagName("li");
+			for(var i=0;i<taskItems.length;i++)
+				taskItems[i].onclick = taskItemClick;
+		}
+		window.onload = initialize; 
+	})();
+
 	</script>
 </head>
 <body>

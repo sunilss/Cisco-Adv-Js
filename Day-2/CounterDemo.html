@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Counter Doc</title>
+	<script>
+	
+	window.addEventListener("DOMContentLoaded",initialize);
+	function initialize(){
+		var counter = 0;
+		document.getElementById("btnCount").addEventListener("click",countAndDisplay);
+		function countAndDisplay(){
+			counter++;
+			document.getElementById("divMessage").innerHTML = counter;
+		}
+	}
+
+	
+	</script>
+</head>
+<body>
+	<input type="button" value="Count" id="btnCount">
+	<input type="hidden" id="hdCounter" value="0">
+	<div id="divMessage"></div>
+</body>
+</html>
